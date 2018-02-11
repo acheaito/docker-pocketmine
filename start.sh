@@ -4,10 +4,10 @@ set -e
 
 # stage installer
 if [ -e /data/install.sh ]; then
-  rm -f /data/install.sh
+  rm -f /data/install.sh 
 fi
 
-wget -q -O /data/install.sh https://get.pocketmine.net/
+wget -q -O /data/install.sh https://get.pmmp.io
 chmod 755 /data/install.sh
 
 # check if configuration file exists
@@ -19,7 +19,7 @@ fi
 chown -R minecraft:minecraft /data
 
 # install pocketmine
-sudo -E -u minecraft ./install.sh -v development
+sudo -E -u minecraft ./install.sh
 
 # start pocketmine
-exec sudo -E -u minecraft PHP_BINARY=/data/bin/php5/bin/php ./start.sh
+exec sudo -E -u minecraft PHP_BINARY=/data/bin/php7/bin/php ./start.sh

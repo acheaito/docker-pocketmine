@@ -1,15 +1,11 @@
-# Minecraft PE Server
-FROM ubuntu:trusty
-MAINTAINER  Nicholas Marus <nmarus@gmail.com>
-
-# Setup APT
-RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
+# PocketMine Minecraft PE Server
+FROM centos:7
+MAINTAINER  Ali Cheaito <acheaito@gmail.com>
 
 # Update, Install Prerequisites
-RUN DEBIAN_FRONTEND=noninteractive apt-get -y update && \
-  apt-get install -y vim sudo wget perl gcc g++ make automake libtool autoconf m4 gcc-multilib && \
-  apt-get install -y language-pack-en-base software-properties-common python-software-properties && \
-  apt-get clean && \
+RUN yum -y update && \
+  yum install -y vim sudo wget perl gcc g++ make automake libtool autoconf m4 gcc-multilib && \  
+  yum clean all && \
   rm -rf /var/lib/apt/lists/*
 
 # Stage Files
