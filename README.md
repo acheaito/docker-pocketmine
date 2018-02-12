@@ -2,12 +2,15 @@
 An updated fork of [nmarus/docker-pocketmine](https://github.com/nmarus/docker-pocketmine), a Docker wrapper of the Pocketmine-MP Minecraft server for Minecraft PE and Bedrock (better together editions) clients. 
 This fork adds a simple build script, updated base image (CentOS 7), and pulls the updated [installation script](https://get.pmmp.io).
 
-## Getting Started
-One time setup:
+## Requirements
 * Download and install the appropriate [Docker installation](https://www.docker.com/) for your system (the host)
 * Open server port in host firewall (default 19132) ([Windows](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access),[Linux](https://help.ubuntu.com/lts/serverguide/firewall.html))
 * Enable C drive sharing in [Docker Settings](https://beta.docker.com/docs/windows/getting-started/#docker-settings)  
-* Clone this repository (Requires a [git client](https://git-scm.com/downloads))
+* (Optional) a [git client](https://git-scm.com/downloads) if cloning the repo
+
+## Getting Started
+One time setup:
+* Clone this repository or download it
 * In the repo folder, run  
         <pre>build</pre>
 * The rebuild script will:
