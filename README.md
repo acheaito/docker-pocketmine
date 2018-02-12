@@ -1,7 +1,6 @@
 # Pocketmine for Docker
-
-This is an implementation of the [Pocketmine-MP](https://pmmp.io/) LAN server for allowing Minecraft-PE clients to play.
-This is running the development version of pocketmine installed by running the script at [Pocketmine's website](https://get.pmmp.io)
+An updated fork of [nmarus/docker-pocketmine](https://github.com/nmarus/docker-pocketmine), a Docker wrapper of the Pocketmine-MP Minecraft server for Minecraft PE and Bedrock (better together editions) clients. 
+This fork adds a simple build script, updated base image (CentOS 7), and pulls the updated [installation script](https://get.pmmp.io).
 
 ## Getting Started
 One time setup:
