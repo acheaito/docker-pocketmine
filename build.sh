@@ -1,16 +1,10 @@
-yum install -y yum-utils epel-release http://rpms.remirepo.net/enterprise/remi-release-7.rpm
-yum-config-manager --enable remi-php72
-yum update -y
-
-yum install -y sudo curl wget perl openssl gcc gcc-c++ git bison bzip2 make automake libtool autoconf m4 gcc-multilib
-
-
-#clean up
-yum clean all 
-rm -rf /var/lib/apt/lists/*
-rm -rf /var/cache/yum
+apt-get update -y
+apt-get install -y apt-utils sudo curl wget perl openssl gcc g++ git bison bzip2 make automake libtool autoconf m4 gcc-multilib
+apt-get clean
+apt-get autoremove
 
 # stage installer
+mkdir -p /data
 rm -f /data/install.sh 
 wget -q -O /data/install.sh https://get.pmmp.io
 chmod 755 /data/install.sh
@@ -21,8 +15,9 @@ if [ ! -e /data/server.properties ]; then
 fi
 
 # setup owner
+useradd --home-dir /data --shell /bin/bash --password minecraft --uid 1000 minecraft
 chown -R minecraft:minecraft /data
 
 # install pocketmine
 cd /data
-#sudo -E -u minecraft ./install.sh -u
+sudo -E -u minecraft ./install.sh
