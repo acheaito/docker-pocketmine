@@ -13,7 +13,7 @@ This fork uses the updated [installation script](https://get.pmmp.io).
 	docker create --interactive --tty --publish 19132:19132/tcp -p 19132:19132/udp --volume **USER_HOME**/.pocketmine/data:/data --name pocketmine acheaito/pocketmine
 
 ## Running the Pocketmine server
-	docker run pocketmine
+	docker start pocketmine
     
 ## Usage
 ### Configuration
