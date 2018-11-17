@@ -1,23 +1,26 @@
+alias apt-get='apt-get -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold"'
 apt-get update -y
-apt-get install -y apt-utils sudo curl wget perl openssl gcc g++ git bison bzip2 make automake libtool autoconf m4 gcc-multilib
+apt-get install -y sudo curl wget
 apt-get clean
 apt-get autoremove
 
 # stage installer
-mkdir -p /data
-rm -f /data/install.sh 
-wget -q -O /data/install.sh https://get.pmmp.io
-chmod 755 /data/install.sh
-
-# check if configuration file exists
-if [ ! -e /data/server.properties ]; then
-  cp /tmp/server.properties /data/server.properties
-fi
+mkdir -p /data/workarea /data/minecraft
+wget -q -O /data/workarea/install.sh https://get.pmmp.io
+chmod 755 /data/workarea/install.sh
+cp /tmp/server.properties /data/workarea/server.properties
 
 # setup owner
-useradd --home-dir /data --shell /bin/bash --password minecraft --uid 1000 minecraft
+useradd --shell /bin/bash minecraft
 chown -R minecraft:minecraft /data
 
 # install pocketmine
-cd /data
+cd /data/workarea
 sudo -E -u minecraft ./install.sh
+
+# create startup script
+echo '#!/bin/bash' > /startup.sh
+echo 'cp -r -n -v /data/workarea/* /data/minecraft' >> /startup.sh
+echo 'cd /data/minecraft' >> /startup.sh
+echo './start.sh' >> /startup.sh
+chmod 755 /startup.sh

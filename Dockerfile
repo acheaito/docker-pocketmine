@@ -1,4 +1,3 @@
-# PocketMine Minecraft PE Server
 FROM ubuntu:18.04
 MAINTAINER  Ali Cheaito <acheaito@gmail.com>
 
@@ -8,4 +7,4 @@ RUN chmod 755 /build.sh
 RUN /build.sh
 
 USER minecraft
-CMD ["/data/start.sh"]
+CMD ["/startup.sh"]
